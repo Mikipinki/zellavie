@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>404 — zellavie</title>
 
 <!-- 🎀 فاویکون گیف -->
@@ -11,10 +11,12 @@
 <link rel="apple-touch-icon" href="icon.gif">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#090a0f}
+body{font-family:Vazirmatn,sans-serif;-webkit-font-smoothing:antialiased}
 
 .container{
   position:fixed;
@@ -32,6 +34,7 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
   left:0;
   background:transparent;
   border-radius:50%;
+  will-change:transform;
 }
 #stars{
   width:1px;height:1px;
@@ -583,23 +586,28 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
   align-items:center;
   justify-content:center;
   gap:1em;
-  padding:24px;
+  padding:clamp(16px, 4vw, 32px);
+  padding-top: calc(clamp(16px, 4vw, 32px) + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(clamp(16px, 4vw, 32px) + env(safe-area-inset-bottom, 0px));
   text-align:center;
   color:#fff;
   font-family:Vazirmatn,sans-serif;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 
 .logo-404{
-  width:clamp(200px, 42vw, 380px);
+  width:clamp(160px, 42vw, 380px);
   height:auto;
   display:block;
   user-select:none;
   -webkit-user-drag:none;
+  flex-shrink:0;
 }
 .logo-404-fallback{display:none}
 
 .code404{
-  font-size:clamp(4rem,14vw,7rem);
+  font-size:clamp(3rem,14vw,7rem);
   font-weight:900;
   letter-spacing:.08em;
   line-height:1;
@@ -612,7 +620,7 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
 }
 
 .sub-en{
-  font-size:.75rem;
+  font-size:clamp(.6rem, 1.5vw, .75rem);
   letter-spacing:.35em;
   color:#c9b47a;
   margin:0;
@@ -620,14 +628,14 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
 }
 
 .title-fa{
-  font-size:clamp(1.25rem,3.5vw,1.9rem);
+  font-size:clamp(1.1rem,3.5vw,1.9rem);
   font-weight:900;
   margin:.2em 0 0;
   color:#fff;
 }
 
 .desc-fa{
-  font-size:.95rem;
+  font-size:clamp(.8rem, 2vw, .95rem);
   color:#bdbdd0;
   line-height:2;
   max-width:28em;
@@ -646,11 +654,12 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
   padding:14px 34px;
   border-radius:999px;
   font-weight:900;
-  font-size:.95rem;
+  font-size:clamp(.85rem, 2vw, .95rem);
   box-shadow:0 12px 30px rgba(237,111,158,.5);
   transition:.3s ease;
   cursor:pointer;
   border:0;
+  flex-shrink:0;
 }
 .btn-home:hover{
   transform:translateY(-3px);
@@ -664,47 +673,71 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
   right:0;
   z-index:11;
   text-align:center;
-  padding:20px 16px 22px;
+  padding:16px 16px calc(16px + env(safe-area-inset-bottom, 0px));
   border-top:1px solid rgba(255,255,255,.18);
   color:rgba(255,255,255,.9);
   font-family:Vazirmatn,sans-serif;
   font-size:12px;
+  background:linear-gradient(to top, rgba(9,10,15,.7), transparent);
 }
 .footer-404 .foot-socials{
   display:flex;
   justify-content:center;
-  gap:14px;
+  gap:10px;
   flex-wrap:wrap;
 }
 .footer-404 .foot-social{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:9px 16px;
+  padding:8px 14px;
   background:rgba(255,255,255,.92);
   color:#b83d78;
   border-radius:999px;
   font-weight:800;
-  font-size:12px;
+  font-size:11px;
   text-decoration:none;
   transition:.25s;
   box-shadow:0 6px 16px rgba(0,0,0,.28);
 }
 .footer-404 .foot-social:hover{transform:translateY(-3px);background:#fff}
-.footer-404 .foot-social svg{width:16px;height:16px;fill:#b83d78}
+.footer-404 .foot-social svg{width:16px;height:16px;fill:#b83d78;flex-shrink:0}
 
-@media(max-width:520px){
-  .content{gap:.85em;padding:18px}
-  .logo-404{width:clamp(180px,60vw,240px)}
-  .code404{font-size:3.6rem}
-  .sub-en{letter-spacing:.25em;font-size:.65rem}
-  .footer-404{padding:16px 12px 18px}
-  .footer-404 .foot-social{padding:8px 12px;font-size:11px}
+/* Responsive */
+@media(max-width:640px){
+  .content{gap:.75em;padding:14px}
+  .logo-404{width:clamp(140px,55vw,220px)}
+  .code404{font-size:clamp(3rem,18vw,5rem)}
+  .sub-en{letter-spacing:.25em;font-size:.6rem}
+  .footer-404{padding:12px 10px calc(12px + env(safe-area-inset-bottom, 0px))}
+  .footer-404 .foot-social{padding:7px 11px;font-size:10.5px}
+  .footer-404 .foot-social svg{width:14px;height:14px}
+}
+
+@media(max-width:400px){
+  .content{gap:.6em}
+  .logo-404{width:clamp(120px,50vw,180px)}
+  .code404{font-size:clamp(2.5rem,20vw,4rem)}
+  .title-fa{font-size:1.05rem}
+  .desc-fa{font-size:.78rem;line-height:1.85}
+  .btn-home{padding:11px 24px;font-size:.8rem}
+}
+
+@media (max-height:600px){
+  .content{gap:.5em}
+  .logo-404{width:clamp(100px,30vh,180px)}
+  .code404{font-size:clamp(2rem,10vh,4rem)}
 }
 
 @keyframes animStar{
   from{transform:translateY(0px)}
   to{transform:translateY(-2000px)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  #stars, #stars2, #stars3, #stars:after, #stars2:after, #stars3:after{
+    animation: none !important;
+  }
 }
 </style>
 </head>
@@ -719,7 +752,7 @@ html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#
   <img class="logo-404" src="logo.png" alt="zellavie"
        onerror="this.style.display='none';document.getElementById('planetFallback').style.display='block';">
 
-  <svg id="planetFallback" class="logo-404-fallback" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="سیاره" style="width:clamp(180px,34vw,240px);height:auto">
+  <svg id="planetFallback" class="logo-404-fallback" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="سیاره" style="width:clamp(140px,34vw,240px);height:auto">
     <defs>
       <radialGradient id="pg" cx="35%" cy="30%" r="80%">
         <stop offset="0%" stop-color="#d9b3ff"/>
