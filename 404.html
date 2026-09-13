@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>404 — zellavie</title>
 
-<!-- 🎀 فاویکون گیف -->
 <link rel="icon" type="image/gif" href="icon.gif">
 <link rel="shortcut icon" type="image/gif" href="icon.gif">
 <link rel="apple-touch-icon" href="icon.gif">
@@ -21,8 +20,6 @@ body{font-family:Vazirmatn,sans-serif;-webkit-font-smoothing:antialiased}
 .container{
   position:fixed;
   inset:0;
-  width:100%;
-  height:100%;
   background:radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
   overflow:hidden;
   z-index:0;
@@ -703,9 +700,8 @@ body{font-family:Vazirmatn,sans-serif;-webkit-font-smoothing:antialiased}
 .footer-404 .foot-social:hover{transform:translateY(-3px);background:#fff}
 .footer-404 .foot-social svg{width:16px;height:16px;fill:#b83d78;flex-shrink:0}
 
-/* Responsive */
 @media(max-width:640px){
-  .content{gap:.75em;padding:14px}
+  .content{gap:.75em;padding:14px;padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px))}
   .logo-404{width:clamp(140px,55vw,220px)}
   .code404{font-size:clamp(3rem,18vw,5rem)}
   .sub-en{letter-spacing:.25em;font-size:.6rem}
