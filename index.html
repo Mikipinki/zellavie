@@ -523,9 +523,17 @@ img{max-width:100%;height:auto;display:block}
 
 /* ---------- 404 container ---------- */
 #notfound-container{
-  position:fixed;inset:0;z-index:100;
-  display:block;background:#090a0f;
-  padding:0;margin:0;overflow:hidden;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:block;
+  background:#090a0f;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  width:100vw;
+  height:100vh;
+  height:100dvh;
 }
 #notfound-container iframe{width:100%;height:100%;border:0;display:block}
 
@@ -614,11 +622,11 @@ img{max-width:100%;height:auto;display:block}
 </head>
 <body>
 
-<div class="page">
-  <nav class="nav">
+<div class="page" id="page">
+  <nav class="nav" id="siteNav">
     <a class="logo" href="#/">Zellavie</a>
   </nav>
-  <div class="divider nav-divider"></div>
+  <div class="divider nav-divider" id="siteDivider"></div>
   <main id="app"></main>
 </div>
 
@@ -641,6 +649,9 @@ const HERO_IMAGE = "logo.png";
 let tree=[], products=[], activeImages=[], activeIndex=0;
 const app=document.getElementById("app");
 const footerEl=document.getElementById("footer");
+const pageEl=document.getElementById("page");
+const navEl=document.getElementById("siteNav");
+const navDividerEl=document.getElementById("siteDivider");
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const has = v => typeof v==="string" && v.trim().length>0;
@@ -855,7 +866,25 @@ async function order(name){
   });
 }
 
+/* ---------- 404 ---------- */
+function hideSiteChrome(){
+  // Hide nav, divider, footer so nothing shows behind the 404 iframe
+  navEl.style.display = "none";
+  navDividerEl.style.display = "none";
+  footerEl.style.display = "none";
+  pageEl.style.maxWidth = "none";
+  pageEl.style.padding = "0";
+}
+function showSiteChrome(){
+  navEl.style.display = "";
+  navDividerEl.style.display = "";
+  footerEl.style.display = "";
+  pageEl.style.maxWidth = "";
+  pageEl.style.padding = "";
+}
+
 function notFound(){
+  hideSiteChrome();
   app.innerHTML = `
     <section id="notfound-container">
       <iframe src="404.html" title="404 — page not found" loading="lazy"></iframe>
@@ -864,6 +893,8 @@ function notFound(){
 }
 
 async function route(){
+  // Always restore site chrome first, then hide it again for 404
+  showSiteChrome();
   const r=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean);
   if(!r.length){ home(); return; }
   if(r[0]==="product"){ await product(decodeURIComponent(r[1]||"")); return; }
