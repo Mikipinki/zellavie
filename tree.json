@@ -1,0 +1,95 @@
+[
+  {
+    "name": "cherrylove",
+    "type": "dir",
+    "path": "products/cherrylove",
+    "children": [
+      {
+        "name": "1.jpg",
+        "type": "file",
+        "path": "products/cherrylove/1.jpg",
+        "download_url": "products/cherrylove/1.jpg"
+      },
+      {
+        "name": "2.jpg",
+        "type": "file",
+        "path": "products/cherrylove/2.jpg",
+        "download_url": "products/cherrylove/2.jpg"
+      },
+      {
+        "name": "3.jpg",
+        "type": "file",
+        "path": "products/cherrylove/3.jpg",
+        "download_url": "products/cherrylove/3.jpg"
+      },
+      {
+        "name": "4.jpg",
+        "type": "file",
+        "path": "products/cherrylove/4.jpg",
+        "download_url": "products/cherrylove/4.jpg"
+      },
+      {
+        "name": "info.md",
+        "type": "file",
+        "path": "products/cherrylove/info.md",
+        "download_url": "products/cherrylove/info.md"
+      }
+    ]
+  },
+  {
+    "name": "levin",
+    "type": "dir",
+    "path": "products/levin",
+    "children": [
+      {
+        "name": "1.jpg",
+        "type": "file",
+        "path": "products/levin/1.jpg",
+        "download_url": "products/levin/1.jpg"
+      },
+      {
+        "name": "2.jpg",
+        "type": "file",
+        "path": "products/levin/2.jpg",
+        "download_url": "products/levin/2.jpg"
+      },
+      {
+        "name": "3.jpg",
+        "type": "file",
+        "path": "products/levin/3.jpg",
+        "download_url": "products/levin/3.jpg"
+      },
+      {
+        "name": "info.md",
+        "type": "file",
+        "path": "products/levin/info.md",
+        "download_url": "products/levin/info.md"
+      }
+    ]
+  },
+  {
+    "name": "pijama",
+    "type": "dir",
+    "path": "products/pijama",
+    "children": [
+      {
+        "name": "1.jpg",
+        "type": "file",
+        "path": "products/pijama/1.jpg",
+        "download_url": "products/pijama/1.jpg"
+      },
+      {
+        "name": "2.jpg",
+        "type": "file",
+        "path": "products/pijama/2.jpg",
+        "download_url": "products/pijama/2.jpg"
+      },
+      {
+        "name": "info.md",
+        "type": "file",
+        "path": "products/pijama/info.md",
+        "download_url": "products/pijama/info.md"
+      }
+    ]
+  }
+]
